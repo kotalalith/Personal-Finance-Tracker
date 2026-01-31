@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Base styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* ✅ Light Mode base styling */
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* ✅ Fix invisible input and dropdown text */
+input,
+select,
+textarea {
+  @apply bg-white text-gray-900 border border-gray-300 rounded-md;
+}
+
+/* ✅ Focus states */
+input:focus,
+select:focus,
+textarea:focus {
+  @apply ring-2 ring-blue-500 outline-none;
+}
+
+/* ✅ Fix button visibility */
+button {
+  @apply text-gray-900;
+}
+
+/* ✅ Dropdown options visible */
+option {
+  @apply text-gray-900 bg-white;
+}
+
+/* ✅ For main app container */
+#root,
+.app-container {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen;
+}
+
+/* ✅ Light mode (already works fine) */
+select {
+  @apply bg-white text-gray-900 border border-gray-300 rounded-md;
+}
+
+/* ✅ Dark mode for select and dropdown */
+.dark select {
+  @apply bg-gray-800 text-gray-100 border-gray-600;
+}
+
+/* ✅ Fix dropdown options in dark mode */
+.dark option {
+  @apply bg-gray-800 text-gray-100;
+}
+
+/* ✅ Optional: style the focus ring for both modes */
+select:focus {
+  @apply ring-2 ring-blue-500 outline-none;
+}
+
+/* ✅ Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* ✅ Animations for DashboardHero */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes float-delayed {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite 1s;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite 0.5s;
+}
+
+/* 3D Perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
