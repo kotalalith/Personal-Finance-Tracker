@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_BASE_URL } from "../config";
 
 const VoiceAssistant = ({ onVoiceCommand }) => {
   const [listening, setListening] = useState(false);
@@ -27,7 +28,7 @@ const VoiceAssistant = ({ onVoiceCommand }) => {
 
       // Send to backend
       try {
-        const res = await fetch("http://localhost:5000/api/voice/query", {
+        const res = await fetch(`${API_BASE_URL}/voice/query`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: text }),
@@ -61,9 +62,8 @@ const VoiceAssistant = ({ onVoiceCommand }) => {
       <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">🎙️ FinTrack Voice Assistant</h2>
       <button
         onClick={startListening}
-        className={`px-6 py-3 rounded-md text-white font-semibold transition ${
-          listening ? "bg-red-600 animate-pulse" : "bg-blue-600 hover:bg-blue-700"
-        }`}
+        className={`px-6 py-3 rounded-md text-white font-semibold transition ${listening ? "bg-red-600 animate-pulse" : "bg-blue-600 hover:bg-blue-700"
+          }`}
       >
         {listening ? "Listening..." : "Ask FinTrack"}
       </button>

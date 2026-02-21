@@ -1,6 +1,7 @@
 // components/BillUploader.jsx
 import React, { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 
 export default function BillUploader({ onParsed }) {
   const [file, setFile] = useState(null);
@@ -26,7 +27,7 @@ export default function BillUploader({ onParsed }) {
     try {
       const fd = new FormData();
       fd.append("image", file);
-      const res = await axios.post("http://localhost:5000/api/ocr/upload", fd, {
+      const res = await axios.post(`${API_BASE_URL}/ocr/upload`, fd, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       // server returns parsed { vendor, date, total, category, rawText }

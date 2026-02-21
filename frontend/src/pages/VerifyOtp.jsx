@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { API_BASE_URL } from "../config";
 
 const VerifyOtp = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const VerifyOtp = () => {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const res = await fetch(`${API_BASE_URL}/auth/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
@@ -69,11 +70,10 @@ const VerifyOtp = () => {
         <button
           type="submit"
           disabled={timeLeft <= 0}
-          className={`w-full py-2 rounded text-white font-semibold ${
-            timeLeft > 0
+          className={`w-full py-2 rounded text-white font-semibold ${timeLeft > 0
               ? "bg-blue-600 hover:bg-blue-700"
               : "bg-gray-400 cursor-not-allowed"
-          }`}
+            }`}
         >
           Verify OTP
         </button>

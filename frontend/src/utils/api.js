@@ -1,10 +1,8 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://personal-finance-tracker-8ezy.onrender.com/api';
-
-// Create axios instance
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
